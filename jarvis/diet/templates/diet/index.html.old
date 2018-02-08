@@ -1,0 +1,64 @@
+{% extends 'diet/base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xl">
+			<h1 class="text-right">
+				<button id="btnAddEntry" type="button" class="btn btn-outline-dark">Add Entry</button>
+				<button id="btnNewFood" type="button" class="btn btn-outline-success">New Food</button>
+			</h1>
+			<div class="table-responsive">
+			<table class="table table-dark table-sm">
+				<thead>
+					<tr>
+						<th scope="col">Food</th>
+						<th scope="col">Cal</th>
+						<th scope="col">Pr</th>
+						<th scope="col">Ca</th>
+						<th scope="col">Fa</th>
+						<th scope="col">Fi</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% if todays_entry_list %}
+					<tr class="text-info">
+						<th scope="row"> Totals</th>
+						<td>{{ total_calories|floatformat:"-1" }}</td>
+						<td>{{ total_protein|floatformat:"-1" }}</td>
+						<td>{{ total_carbohydrates|floatformat:"-1" }}</td>
+						<td>{{ total_fat|floatformat:"-1" }}</td>
+						<td>{{ total_fiber|floatformat:"-1" }}</td>
+						<td></td>
+					</tr>	
+					{% for entry in todays_entry_list %}
+					<tr>
+						<th scope="row">
+							<span class="float-left">
+								<form method="POST" class="post-form" action="{% url 'delete_entry' entry.id %}">
+									{% csrf_token %}
+									{{ delete_entry_form.as_p }}
+									<button type="submit" class="save btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+								</form>
+							</span>
+							<a href="{% url 'update_food' entry.food.id %}"> {{ entry }}</a>
+						</th>
+						<td>{{ entry.calories|floatformat:"-1" }}</td> 
+						<td>{{ entry.protein|floatformat:"-1" }}</td> 
+						<td>{{ entry.carbohydrates|floatformat:"-1" }}</td> 
+						<td>{{ entry.fat|floatformat:"-1" }}</td> 
+						<td>{{ entry.fiber|floatformat:"-1" }}</td> 
+					</tr>
+					{% endfor %}
+				{% else %}
+					<tr>
+						<td class="text-center" colspan="7">No entries yet today...</td>
+					</tr>
+				{% endif %}
+				</tbody>
+			</table>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

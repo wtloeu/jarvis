@@ -1,0 +1,4 @@
+__pycache__/
+fontawesome-free-5.0.4/
+jarvis/db.sqlite3
+migrations/

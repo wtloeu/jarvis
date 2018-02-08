@@ -1,0 +1,15 @@
+.float-left .btn-sm {
+	margin-right: 5px;
+}
+
+.body {
+	font-family: 'Roboto', sans-serif !important;
+}
+
+.badge:hover {
+	cursor: pointer;
+}
+
+.entry-desc {
+	padding: 10px;
+}
