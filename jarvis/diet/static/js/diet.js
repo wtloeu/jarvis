@@ -26,17 +26,17 @@ $(document).ready(function(){
 		var new_amt = $("#entry_amount_input").val();
 		var old_amt = $("#cell_amount").html();
 		var cal = $("#cell_calories").html();
-		var pr = $("#cell_protein").html();
-		var ca = $("#cell_carbohydrates").html();
 		var fa = $("#cell_fat").html();
+		var ca = $("#cell_carbohydrates").html();
 		var fi = $("#cell_fiber").html();
+		var pr = $("#cell_protein").html();
 		var mult = new_amt / old_amt;
 		$("#cell_amount").html(new_amt);
 		$("#cell_calories").html(mult * cal);
-		$("#cell_protein").html(mult * pr);
-		$("#cell_carbohydrates").html(mult * ca);
 		$("#cell_fat").html(mult * fa);
+		$("#cell_carbohydrates").html(mult * ca);
 		$("#cell_fiber").html(mult * fi);
+		$("#cell_protein").html(mult * pr);
 	});
 
 	// Do an ajax search when the user selects a food to eat.
@@ -53,10 +53,10 @@ $(document).ready(function(){
 				var json = JSON.parse(data);
 				$("#entry_amount_input").val(json.serving_size);
 				$("#cell_calories").html(json.calories);
-				$("#cell_protein").html(json.protein);
-				$("#cell_carbohydrates").html(json.carbohydrates);
 				$("#cell_fat").html(json.fat);
+				$("#cell_carbohydrates").html(json.carbohydrates);
 				$("#cell_fiber").html(json.fiber);
+				$("#cell_protein").html(json.protein);
 				$("#cell_amount").html(json.serving_size);
 				$("#nutrition_facts").show();
 			},

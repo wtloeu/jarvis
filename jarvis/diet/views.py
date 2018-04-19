@@ -15,25 +15,26 @@ def index(request):
 
     if not todays_entry_list:
         total_calories = 0
-        total_protein = 0
-        total_carbohydrates = 0
         total_fat = 0
+        total_carbohydrates = 0
         total_fiber = 0
+        total_protein = 0
     else:
         total_calories = todays_entry_list.aggregate(Sum('calories'))['calories__sum']
-        total_protein = todays_entry_list.aggregate(Sum('protein'))['protein__sum']
-        total_carbohydrates = todays_entry_list.aggregate(Sum('carbohydrates'))['carbohydrates__sum']
         total_fat = todays_entry_list.aggregate(Sum('fat'))['fat__sum']
+        total_carbohydrates = todays_entry_list.aggregate(Sum('carbohydrates'))['carbohydrates__sum']
         total_fiber = todays_entry_list.aggregate(Sum('fiber'))['fiber__sum']
+        total_protein = todays_entry_list.aggregate(Sum('protein'))['protein__sum']
     context = {'add_entry_form': add_entry_form,
                'add_food_form': add_food_form, 
                'delete_entry_form': delete_entry_form, 
                'todays_entry_list': todays_entry_list, 
                'total_calories': total_calories,
                'total_protein': total_protein,
-               'total_carbohydrates': total_carbohydrates,
                'total_fat': total_fat,
-               'total_fiber': total_fiber
+               'total_carbohydrates': total_carbohydrates,
+               'total_fiber': total_fiber,
+               'total_protein': total_protein
                 }
     return render(request, 'diet/index.html', context)
 
@@ -58,10 +59,10 @@ def food_info(request, food_id):
     nutrition_facts = {
             'serving_size': food.serving_size,
             'calories': food.calories,
-            'protein': food.protein,
-            'carbohydrates': food.carbohydrates,
             'fat': food.fat,
-            'fiber': food.fiber
+            'carbohydrates': food.carbohydrates,
+            'fiber': food.fiber,
+            'protein': food.protein
         }
     data = json.dumps(nutrition_facts, cls=DecimalEncoder)
     return HttpResponse(data, content_type='application/json')

@@ -13,10 +13,10 @@
 					<tr>
 						<th scope="col">Food</th>
 						<th scope="col">Cal</th>
-						<th scope="col">Pr</th>
-						<th scope="col">Ca</th>
 						<th scope="col">Fa</th>
+						<th scope="col">Ca</th>
 						<th scope="col">Fi</th>
+						<th scope="col">Pr</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -24,10 +24,10 @@
 					<tr class="text-info">
 						<th scope="row"> Totals</th>
 						<td>{{ total_calories|floatformat:"-1" }}</td>
-						<td>{{ total_protein|floatformat:"-1" }}</td>
-						<td>{{ total_carbohydrates|floatformat:"-1" }}</td>
 						<td>{{ total_fat|floatformat:"-1" }}</td>
+						<td>{{ total_carbohydrates|floatformat:"-1" }}</td>
 						<td>{{ total_fiber|floatformat:"-1" }}</td>
+						<td>{{ total_protein|floatformat:"-1" }}</td>
 						<td></td>
 					</tr>	
 					{% for entry in todays_entry_list %}
@@ -43,10 +43,10 @@
 							<a class="entry-desc" href="{% url 'update_food' entry.food.id %}"> {{ entry }}</a>
 						</th>
 						<td>{{ entry.calories|floatformat:"-1" }}</td> 
-						<td>{{ entry.protein|floatformat:"-1" }}</td> 
-						<td>{{ entry.carbohydrates|floatformat:"-1" }}</td> 
 						<td>{{ entry.fat|floatformat:"-1" }}</td> 
+						<td>{{ entry.carbohydrates|floatformat:"-1" }}</td> 
 						<td>{{ entry.fiber|floatformat:"-1" }}</td> 
+						<td>{{ entry.protein|floatformat:"-1" }}</td> 
 					</tr>
 					{% endfor %}
 				{% else %}
