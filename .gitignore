@@ -1,4 +1,8 @@
-__pycache__/
-fontawesome-free-5.0.4/
+jarvis/jarvis/__pycache__/*
+jarvis/jarvis/__init__.py
+jarvis/diet/__pycache__/*
+jarvis/diet/__init__.py
+fontawesome-free-5.0.4/*
 jarvis/db.sqlite3
-migrations/
+jarvis/manage.py
+migrations/*
