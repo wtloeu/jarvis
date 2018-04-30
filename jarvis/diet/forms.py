@@ -27,7 +27,8 @@ class AddFoodForm(forms.ModelForm):
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-control'})
 
-        self.fields['serving_unit'].widget.attrs.update({'class': 'custom-select'})
+        self.fields['name'].widget.attrs.update({'oninput': 'selectedFoodFromDatalist()', 'list': 'foods-datalist', 'id': 'fatsecret-search'})
+        self.fields['serving_size'].widget.attrs.update({'class': 'custom-select', 'id': 'fatsecret-serving-size'})
 
 class DeleteEntryForm(forms.ModelForm):
     class Meta:
@@ -43,5 +44,3 @@ class UpdateFoodForm(forms.ModelForm):
         super(UpdateFoodForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-control'})
-
-        self.fields['serving_unit'].widget.attrs.update({'class': 'custom-select'})

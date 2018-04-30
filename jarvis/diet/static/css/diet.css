@@ -13,3 +13,7 @@
 .entry-desc {
 	padding: 10px;
 }
+
+.navbar-brand .fa-hubspot {
+	color: orange !important;
+}

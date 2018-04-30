@@ -59,6 +59,12 @@
 	<form method="POST" class="post-form" action="{% url 'add_food' %}">
 		{% csrf_token %}
 		{{ add_food_form.as_p }}
+		<datalist id="foods-datalist">
+		  
+		</datalist>
+		<tr style="display:none;">
+			<td id="cell_ids"></td>
+		</tr>
 		<button type="submit" class="save btn btn-outline-dark">Save</button>
 		<button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cancel</button>
 	</form>

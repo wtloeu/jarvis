@@ -10,6 +10,10 @@ urlpatterns = [
     path('add_entry/',views.add_entry, name='add_entry'),
     # ex: /diet/add_food
     path('add_food/',views.add_food, name='add_food'),
+    # ex: /diet/search_fatsecret/apple
+    path('search_fatsecret/<str:search_term>/',views.search_fatsecret, name='search_fatsecret'),
+    # ex: /diet/get_fatsecret_food/98274
+    path('get_fatsecret_food/<int:food_id>/',views.get_fatsecret_food, name='get_fatsecret_food'),
     # ex: /diet/delete_entry
     path('delete_entry/<int:entry_id>/',views.delete_entry, name='delete_entry'),
     # ex: /diet/food_info/1/
