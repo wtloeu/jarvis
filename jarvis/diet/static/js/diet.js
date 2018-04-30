@@ -119,7 +119,6 @@ function doneTyping () {
 function selectedFoodServingSize () {
 	var food_id = $("#cell_ids").html();
 	var serving_description = $("#fatsecret-serving-size").val();
-	alert(serving_description); 
 	$.ajax({
 	    url: 'get_fatsecret_food/' + food_id + '/',
 	    dataType: 'text',
