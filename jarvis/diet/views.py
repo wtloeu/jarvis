@@ -100,16 +100,12 @@ def add_food(request):
     return redirect('index')
 
 def search_fatsecret(request, search_term):
-    consumer_key = "6682a9ef27a74473be78157d2adcd05e"
-    consumer_secret = "155464f37ceb41baba593459761aab57"
     fs = Fatsecret(consumer_key, consumer_secret) 
     foods = fs.foods_search(search_term, max_results=20)
     data = json.dumps(foods)
     return HttpResponse(data, content_type='application/json')
 
 def get_fatsecret_food(request, food_id):
-    consumer_key = "6682a9ef27a74473be78157d2adcd05e"
-    consumer_secret = "155464f37ceb41baba593459761aab57"
     fs = Fatsecret(consumer_key, consumer_secret) 
     food = fs.food_get(food_id)
     data = json.dumps(food)
